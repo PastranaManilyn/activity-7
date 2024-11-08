@@ -1,22 +1,4 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['email'])){
-        header('Location:../');
-    }
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Store submitted data in session
-    $_SESSION['students'][] = [
-        'name' => $_POST['name'],
-        'age' => $_POST['age'],
-        'gender' => $_POST['gender'],
-        'course' => $_POST['course'],
-        'campus' => $_POST['campus'],
-        'college' => $_POST['college']
-    ];
-    header("Location: showData.php"); // Redirect to showData.php after adding data
-    exit();
-}
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -39,7 +21,7 @@
                         <li class="breadcrumb-item active">Add Data</li>
                     </ol>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="ShowData.php" method="post">
                             
                             <div class="col-5 form-floating mb-3">
                                 <input class="form-control" type="text" name="name" id="inputName" placeholder="Name" required>
